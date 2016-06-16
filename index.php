@@ -16,7 +16,7 @@ class PostOffice{
   //   	while(fgetc($myfile2)){
 		//   echo fgetc($myfile2);
 		// }
-     	while('fgetc($myfile2)'=='[[:alnum:]]'){
+     	while('fgetc($myfile2)'=='[a-zA-Z0-9]'){
 		   echo fgetc($myfile2);
 		}
 		fclose($myfile2);
