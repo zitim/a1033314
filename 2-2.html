@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.cascade.js"></script>
+	<script type="text/javascript" src="jquery.cascade.ext.js"></script>
+	<script type="text/javascript" src="jquery.templating.js"></script>
+	<title>2-2</title>
+</head>
+<?php
+	include'config.php';
+	$link = mysql_connect($conni) or die("無法連結資料庫");
+    mysql_select_db('target', $link);
+    $query = "SELECT area_name FROM area,city where area.no=city.city_no";
+    $result = mysql_query($query, $link);
+    while ($row = mysql_fetch_array($result)) {
+        echo '<option value="' . $row["id"] . '">' . $row["name"] . '</option>' . "\n";
+    }
+?>
+<body>
+	<!--使用ajax從後台抓出資料-->
+	<form>
+	<!--此為範例 請自行修改-->
+		<select name="YourLocation">
+　			<option value="Taipei">台北市</option>
+			<option value="Tainan">台南市</option>
+　			<option value="Kaohsiung">高雄市</option>
+		</select>
+		<select name="area">
+			
+		</select>
+	</form>
+	<!--3-3題-->縣市+區域<input type="text" id="address"></br>
+	<!--加分題(需chrome可用)--><input type="button" value="下載">
+</body>
+
+</html>
+
+
+
